@@ -1,0 +1,19 @@
+{
+    "name": "kingdarkness/goship",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Kingdarkness\\Goship\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nguyễn Trần Hoàn",
+            "email": "nguyentranhoan13@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}
