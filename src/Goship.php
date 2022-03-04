@@ -14,9 +14,9 @@ class Goship
     */
     public $config;
 
-    public function __construct($clientId, $clientSecret, $accessToken)
+    public function __construct($clientId, $clientSecret, $accessToken = null, $username = null, $password = null, $apiUrl = 'https://api.goship.io')
     {
-        $this->config = new Auth($clientId, $clientSecret, $accessToken);
+        $this->config = new Auth($clientId, $clientSecret, $accessToken, $username, $password, $apiUrl);
     }
 
     public function getCities($query = [], $headers)
