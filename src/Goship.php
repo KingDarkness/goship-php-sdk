@@ -25,7 +25,7 @@ class Goship
         return $requester->getCities($query, $headers);
     }
 
-    public function getDistrict($cityCode, $query = [], $headers = [])
+    public function getDistricts($cityCode, $query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
         return $requester->getDistricts($cityCode, $query, $headers);
