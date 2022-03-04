@@ -22,31 +22,40 @@ class Goship
     public function getCities($query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
-        return $requester->getCities($query, $headers);
+        $response = $requester->getCities($query, $headers);
+        return Arr::get($response, 'data', []);
     }
 
     public function getDistricts($cityCode, $query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
-        return $requester->getDistricts($cityCode, $query, $headers);
+        $response = $requester->getDistricts($cityCode, $query, $headers);
+        return Arr::get($response, 'data', []);
     }
 
     public function getWards($districtCode, $query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
-        return $requester->getWards($districtCode, $query, $headers);
+        $response = $requester->getWards($districtCode, $query, $headers);
+        return Arr::get($response, 'data', []);
     }
 
     public function getShipments($query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
-        return $requester->getByQuery($query, $headers);
+        $response = $requester->getByQuery($query, $headers);
+        return Arr::get($response, 'data', []);
     }
 
     public function getShipment($code, $query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
-        return $requester->getDetail($code, $query, $headers);
+        $response = $requester->getDetail($code, $query, $headers);
+        $shipments = Arr::get($response, 'data', []);
+        if (count($shipments)) {
+            return $shipments[0];
+        }
+        return null;
     }
 
     public function getPrintUrl($code, $query = [], $headers = [])
@@ -58,7 +67,8 @@ class Goship
     public function cancelShipment($code, $query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
-        return $requester->delete($code, $query, $headers);
+        $response = $requester->delete($code, $query, $headers);
+        return Arr::get($response, 'data', []);
     }
 
     public function createShipment($data, $query = [], $headers = [])
@@ -127,25 +137,29 @@ class Goship
         ];
 
         $requester = new Shipment(new HttpClient(), $this->config);
-        return $requester->getRates($sendData, $query, $headers);
+        $response = $requester->getRates($sendData, $query, $headers);
+        return Arr::get($response, 'data', []);
     }
 
     public function getTransaction($query = [], $headers = [])
     {
         $requester = new Transaction(new HttpClient(), $this->config);
-        return $requester->getByQuery($query, $headers);
+        $response = $requester->getByQuery($query, $headers);
+        return Arr::get($response, 'data', []);
     }
 
     public function getInvoices($query = [], $headers = [])
     {
         $requester = new Invoice(new HttpClient(), $this->config);
-        return $requester->getByQuery($query, $headers);
+        $response = $requester->getByQuery($query, $headers);
+        return Arr::get($response, 'data', []);
     }
 
     public function getShipmentInInvoice($invoiceCode, $query = [], $headers = [])
     {
         $requester = new Invoice(new HttpClient(), $this->config);
-        return $requester->getShipments($invoiceCode, $query, $headers);
+        $response = $requester->getShipments($invoiceCode, $query, $headers);
+        return Arr::get($response, 'data', []);
     }
 
     public function verifyWebhook()
