@@ -19,49 +19,49 @@ class Goship
         $this->config = new Auth($clientId, $clientSecret, $accessToken, $username, $password, $apiUrl);
     }
 
-    public function getCities($query = [], $headers)
+    public function getCities($query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
         return $requester->getCities($query, $headers);
     }
 
-    public function getDistrict($cityCode, $query = [], $headers)
+    public function getDistrict($cityCode, $query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
         return $requester->getDistricts($cityCode, $query, $headers);
     }
 
-    public function getWards($districtCode, $query = [], $headers)
+    public function getWards($districtCode, $query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
         return $requester->getWards($districtCode, $query, $headers);
     }
 
-    public function getShipments($query = [], $headers)
+    public function getShipments($query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
         return $requester->getByQuery($query, $headers);
     }
 
-    public function getShipment($code, $query = [], $headers)
+    public function getShipment($code, $query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
         return $requester->getDetail($code, $query, $headers);
     }
 
-    public function getPrintUrl($code, $query = [], $headers)
+    public function getPrintUrl($code, $query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
         return $requester->printUrl($code, $query, $headers);
     }
 
-    public function cancelShipment($code, $query = [], $headers)
+    public function cancelShipment($code, $query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
         return $requester->delete($code, $query, $headers);
     }
 
-    public function createShipment($data, $query = [], $headers)
+    public function createShipment($data, $query = [], $headers = [])
     {
         $sendData = [
           'shipment' => [
@@ -103,7 +103,7 @@ class Goship
         return $requester->create($sendData, $query, $headers);
     }
 
-    public function getRates($data, $query = [], $headers)
+    public function getRates($data, $query = [], $headers = [])
     {
         $sendData = [
           'shipment' => [
