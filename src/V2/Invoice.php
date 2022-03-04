@@ -15,7 +15,7 @@ class Invoice extends Request
      */
     public function getByQuery(array $query = [], array $headers = [])
     {
-        $response = $this->request('api/v2/invoices', 'GET', [
+        $response = $this->request('/api/v2/invoices', 'GET', [
             'query' => $query,
             'headers' => $headers,
         ]);

@@ -23,9 +23,9 @@ abstract class Request
         $this->config = $config;
     }
 
-    public function request(string $url, string $method = 'GET', array $request = [])
+    public function request(string $url, string $method = 'GET', array $request = [], $withAuth = true)
     {
-        $request['headers'] = array_merge(Arr::get($request, 'headers', []), $this->defaultHeaders());
+        $request['headers'] = array_merge(Arr::get($request, 'headers', []), $this->defaultHeaders($withAuth));
         $request['verify'] = false;
         $request['curl'] = [
             CURLOPT_SSLVERSION => CURL_SSLVERSION_MAX_TLSv1_2,
@@ -49,10 +49,14 @@ abstract class Request
         return $response;
     }
 
-    private function defaultHeaders()
+    private function defaultHeaders($withAuth = true)
     {
-        return [
-            'Authorization' => $this->config->getToken()
-        ];
+        if ($withAuth) {
+            return [
+                'Authorization' => $this->config->getToken()
+            ];
+        }
+
+        return [];
     }
 }
