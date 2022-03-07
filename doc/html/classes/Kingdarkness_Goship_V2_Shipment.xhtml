@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - Kingdarkness\Goship\V2\Shipment</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml#Kingdarkness_Goship_V2">Kingdarkness\Goship\V2</a>
+          </li>
+          <li class="separator">Shipment</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/V2/Shipment.php.xhtml#line6">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>Kingdarkness\Goship\V2\</small>Shipment</h1>
+        <h4/>
+        <p/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Shipment
+                extends <a title="Kingdarkness\Goship\Request" href="../classes/Kingdarkness_Goship_Request.xhtml">Request</a>
+            {<br/><ul class="none"><li>// constants</li><li>const STATUS_NEW = 900;</li><li>const STATUS_PICKUP = 901;</li><li>const STATUS_PICKINGUP = 902;</li><li>const STATUS_PICKEDUP = 903;</li><li>const STATUS_DELIVERING = 904;</li><li>const STATUS_DELIVERED = 905;</li><li>const STATUS_FAILED = 906;</li><li>const STATUS_RETURNING = 907;</li><li>const STATUS_RETURNED = 908;</li><li>const STATUS_CROSSCHECKED_CARRIER = 909;</li><li>const STATUS_CROSSCHECKED_SHOP = 910;</li><li>const STATUS_COD_SHOP = 911;</li><li>const STATUS_COD_CARRIER = 912;</li><li>const STATUS_DONE = 913;</li><li>const STATUS_CANCEL = 914;</li><li>const STATUS_DELAY = 915;</li><li>const STATUS_DELIVERED_PART = 916;</li><li>const STATUS_LOST = 917;</li><li>const STATUS_UNKNOW = 1000;</li><li>const CUSTOMER_PAY = 0;</li><li>const SHOP_PAY = 1;</li></ul><ul class="none"><li>// Inherited members from <span title="Kingdarkness\Goship\Request">Request</span></li><li>protected <span title="GuzzleHttp\Client">Client</span> <a href="#members">$httpClient</a>;
+                        </li><li>protected <span title="Kingdarkness\Goship\Auth">Auth</span> <a href="#members">$config</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/getStatusText.xhtml">getStatusText</a>()
+                    </li><li>public array <a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/getRates.xhtml">getRates</a>()
+                    </li><li>public array <a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/create.xhtml">create</a>()
+                    </li><li>public array <a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/getByQuery.xhtml">getByQuery</a>()
+                    </li><li>public array <a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/getDetail.xhtml">getDetail</a>()
+                    </li><li>public array <a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/delete.xhtml">delete</a>()
+                    </li><li>public void <a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/printUrl.xhtml">printUrl</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="Kingdarkness\Goship\Request">Request</span></li><li>public void <a title="Kingdarkness\Goship\Request" href="../classes/Kingdarkness_Goship_Request/__construct.xhtml">__construct</a>()
+                        </li><li>public void <a title="Kingdarkness\Goship\Request" href="../classes/Kingdarkness_Goship_Request/request.xhtml">request</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a title="Kingdarkness\Goship\Request" href="../classes/Kingdarkness_Goship_Request.xhtml">Kingdarkness\Goship\Request</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="STATUS_NEW">STATUS_NEW</td>
+              <td>900</td>
+            </tr>
+            <tr>
+              <td id="STATUS_PICKUP">STATUS_PICKUP</td>
+              <td>901</td>
+            </tr>
+            <tr>
+              <td id="STATUS_PICKINGUP">STATUS_PICKINGUP</td>
+              <td>902</td>
+            </tr>
+            <tr>
+              <td id="STATUS_PICKEDUP">STATUS_PICKEDUP</td>
+              <td>903</td>
+            </tr>
+            <tr>
+              <td id="STATUS_DELIVERING">STATUS_DELIVERING</td>
+              <td>904</td>
+            </tr>
+            <tr>
+              <td id="STATUS_DELIVERED">STATUS_DELIVERED</td>
+              <td>905</td>
+            </tr>
+            <tr>
+              <td id="STATUS_FAILED">STATUS_FAILED</td>
+              <td>906</td>
+            </tr>
+            <tr>
+              <td id="STATUS_RETURNING">STATUS_RETURNING</td>
+              <td>907</td>
+            </tr>
+            <tr>
+              <td id="STATUS_RETURNED">STATUS_RETURNED</td>
+              <td>908</td>
+            </tr>
+            <tr>
+              <td id="STATUS_CROSSCHECKED_CARRIER">STATUS_CROSSCHECKED_CARRIER</td>
+              <td>909</td>
+            </tr>
+            <tr>
+              <td id="STATUS_CROSSCHECKED_SHOP">STATUS_CROSSCHECKED_SHOP</td>
+              <td>910</td>
+            </tr>
+            <tr>
+              <td id="STATUS_COD_SHOP">STATUS_COD_SHOP</td>
+              <td>911</td>
+            </tr>
+            <tr>
+              <td id="STATUS_COD_CARRIER">STATUS_COD_CARRIER</td>
+              <td>912</td>
+            </tr>
+            <tr>
+              <td id="STATUS_DONE">STATUS_DONE</td>
+              <td>913</td>
+            </tr>
+            <tr>
+              <td id="STATUS_CANCEL">STATUS_CANCEL</td>
+              <td>914</td>
+            </tr>
+            <tr>
+              <td id="STATUS_DELAY">STATUS_DELAY</td>
+              <td>915</td>
+            </tr>
+            <tr>
+              <td id="STATUS_DELIVERED_PART">STATUS_DELIVERED_PART</td>
+              <td>916</td>
+            </tr>
+            <tr>
+              <td id="STATUS_LOST">STATUS_LOST</td>
+              <td>917</td>
+            </tr>
+            <tr>
+              <td id="STATUS_UNKNOW">STATUS_UNKNOW</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td id="CUSTOMER_PAY">CUSTOMER_PAY</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td id="SHOP_PAY">SHOP_PAY</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="config"><strong>$config</strong>
+                —
+                <a title="Kingdarkness\Goship\Auth" href="../classes/Kingdarkness_Goship_Auth.xhtml">Kingdarkness\Goship\Auth</a></li>
+            <li id="httpClient"><strong>$httpClient</strong>
+                —
+                <a title="GuzzleHttp\Client" href="../classes/GuzzleHttp_Client.xhtml">GuzzleHttp\Client</a></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="create"><a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/create.xhtml">create()</a>
+                — tạo mới vận đơn</li>
+            <li id="delete"><a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/delete.xhtml">delete()</a>
+                — xoá/huỷ vận đơn</li>
+            <li id="getByQuery"><a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/getByQuery.xhtml">getByQuery()</a>
+                — lấy thông tin list vận đơn</li>
+            <li id="getDetail"><a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/getDetail.xhtml">getDetail()</a>
+                — lấy thông tin chi tiết vận đơn</li>
+            <li id="getRates"><a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/getRates.xhtml">getRates()</a>
+                — lấy thông tin bảng giá</li>
+            <li id="getStatusText">
+              <a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/getStatusText.xhtml">getStatusText()</a>
+            </li>
+            <li id="printUrl">
+              <a title="Kingdarkness\Goship\V2\Shipment" href="../classes/Kingdarkness_Goship_V2_Shipment/printUrl.xhtml">printUrl()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="Kingdarkness\Goship\Request" href="../classes/Kingdarkness_Goship_Request.xhtml">Kingdarkness\Goship\Request</a></h3>
+          <h4>public</h4>
+          <ul>
+            <li id="request">
+              <a title="Kingdarkness\Goship\Request" href="../classes/Kingdarkness_Goship_Request/request.xhtml">request()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.12.0 - Copyright (C) 2010 - 2022 by Arne Blankerts and Contributors</span>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Kingdarkness\Goship\Arr" namespace="Kingdarkness\Goship" name="Arr" abstract="false" final="false" start="4" end="10">
+  <file path="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src" file="Arr.php" realpath="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src/Arr.php" size="188" time="2022-03-03T04:03:44+00:00" unixtime="1646280224" sha1="1cdc7c63ae59792f9ad1d7a89a0cce7c07d1bef7" relative="Arr.php"/>
+  <method name="get" start="6" end="9" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="array" byreference="false" type="{unknown}"/>
+    <parameter name="key" byreference="false" type="{unknown}"/>
+    <parameter name="default" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+</class>

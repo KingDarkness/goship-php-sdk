@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Kingdarkness\Goship\V2\Location" namespace="Kingdarkness\Goship\V2" name="Location" abstract="false" final="false" start="6" end="60">
+  <file path="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src/V2" file="Location.php" realpath="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src/V2/Location.php" size="1571" time="2022-03-03T04:20:10+00:00" unixtime="1646281210" sha1="94b089d61beff5bf8836dae0b68ef1bfc55de5d8" relative="V2/Location.php"/>
+  <extends full="Kingdarkness\Goship\Request" namespace="Kingdarkness\Goship" name="Request"/>
+  <method name="getCities" start="16" end="23" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="lấy thông tin list tỉnh thành"/>
+      <param description="(optional)" type="array" variable="$query"/>
+      <param description="(optional)" type="array" variable="$headers"/>
+      <return description="goship response" type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getDistricts" start="34" end="41" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="lấy thông tin list phường xã"/>
+      <param type="mixed" variable="$cityCode"/>
+      <param description="(optional)" type="array" variable="$query"/>
+      <param description="(optional)" type="array" variable="$headers"/>
+      <return description="goship response" type="array"/>
+    </docblock>
+    <parameter name="cityCode" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getWards" start="52" end="59" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="lấy thông tin list phường xã"/>
+      <param type="mixed" variable="$districtCode"/>
+      <param description="(optional)" type="array" variable="$query"/>
+      <param description="(optional)" type="array" variable="$headers"/>
+      <return description="goship response" type="array"/>
+    </docblock>
+    <parameter name="districtCode" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <parent full="Kingdarkness\Goship\Request" namespace="Kingdarkness\Goship" name="Request">
+    <member name="httpClient" visibility="protected" static="false" line="13">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="GuzzleHttp\Client" namespace="GuzzleHttp" name="Client"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="config" visibility="protected" static="false" line="18">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="Kingdarkness\Goship\Auth" namespace="Kingdarkness\Goship" name="Auth"/>
+        </var>
+      </docblock>
+    </member>
+    <constructor name="__construct" start="20" end="24" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="httpClient" byreference="false" type="object">
+        <type full="GuzzleHttp\Client" namespace="GuzzleHttp" name="Client"/>
+      </parameter>
+      <parameter name="config" byreference="false" type="object">
+        <type full="Kingdarkness\Goship\Auth" namespace="Kingdarkness\Goship" name="Auth"/>
+      </parameter>
+    </constructor>
+    <method name="request" start="26" end="50" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="url" byreference="false" type="string"/>
+      <parameter name="method" byreference="false" type="string" default="'GET'"/>
+      <parameter name="request" byreference="false" type="array" default=""/>
+      <parameter name="withAuth" byreference="false" type="boolean" default="true"/>
+    </method>
+  </parent>
+</class>

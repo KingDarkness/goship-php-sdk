@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<source xmlns="http://xml.phpdox.net/src">
+  <dir name="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src">
+    <file name="Auth.php" size="1557" time="2022-03-04T03:11:38+00:00" unixtime="1646363498" sha1="2f5582cd3b12e930aa1853ac2f2925c2ba20b647" xml="tokens/Auth.php.xml"/>
+    <dir name="Exceptions">
+      <file name="UnverifiException.php" size="97" time="2022-03-03T09:40:23+00:00" unixtime="1646300423" sha1="bd01398b0446049a17a88763beabf9187ab07a14" xml="tokens/Exceptions/UnverifiException.php.xml"/>
+      <file name="ValidateException.php" size="242" time="2022-03-03T04:00:45+00:00" unixtime="1646280045" sha1="180cf0a20179fe2f1f414cd96087fa47782dcdea" xml="tokens/Exceptions/ValidateException.php.xml"/>
+    </dir>
+    <dir name="V2">
+      <file name="Shipment.php" size="5270" time="2022-03-03T04:08:32+00:00" unixtime="1646280512" sha1="f290a9c4925a17a1976a06267c555b2030076f2e" xml="tokens/V2/Shipment.php.xml"/>
+      <file name="Transaction.php" size="550" time="2022-03-03T04:24:08+00:00" unixtime="1646281448" sha1="2d18ab1082633b4d923bb5ffca4d02f8a5647eec" xml="tokens/V2/Transaction.php.xml"/>
+      <file name="Auth.php" size="935" time="2022-03-04T03:04:38+00:00" unixtime="1646363078" sha1="c10b8106abee7ed600dd3abae7539977892bbf34" xml="tokens/V2/Auth.php.xml"/>
+      <file name="Invoice.php" size="1086" time="2022-03-04T02:59:02+00:00" unixtime="1646362742" sha1="f9705ddea6a0717130c04d6c56a9e4a020b6d8c9" xml="tokens/V2/Invoice.php.xml"/>
+      <file name="Location.php" size="1571" time="2022-03-03T04:20:10+00:00" unixtime="1646281210" sha1="94b089d61beff5bf8836dae0b68ef1bfc55de5d8" xml="tokens/V2/Location.php.xml"/>
+    </dir>
+    <file name="Request.php" size="1865" time="2022-03-07T02:59:56+00:00" unixtime="1646621996" sha1="44067a364254cd9faf6655fde89a4b2c2e2f744f" xml="tokens/Request.php.xml"/>
+    <file name="Webhook.php" size="312" time="2022-03-03T04:27:11+00:00" unixtime="1646281631" sha1="58225ba15a18812eefa00506b3f1e292c88f842b" xml="tokens/Webhook.php.xml"/>
+    <file name="Goship.php" size="9741" time="2022-03-07T06:55:17+00:00" unixtime="1646636117" sha1="d97c11b0829c78772758b93bfb809442850dca41" xml="tokens/Goship.php.xml"/>
+    <file name="Arr.php" size="188" time="2022-03-03T04:03:44+00:00" unixtime="1646280224" sha1="1cdc7c63ae59792f9ad1d7a89a0cce7c07d1bef7" xml="tokens/Arr.php.xml"/>
+  </dir>
+</source>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Kingdarkness\Goship\Auth" namespace="Kingdarkness\Goship" name="Auth" abstract="false" final="false" start="8" end="53">
+  <file path="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src" file="Auth.php" realpath="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src/Auth.php" size="1557" time="2022-03-04T03:11:38+00:00" unixtime="1646363498" sha1="2f5582cd3b12e930aa1853ac2f2925c2ba20b647" relative="Auth.php"/>
+  <member name="apiUrl" visibility="public" static="false" line="10"/>
+  <member name="clientId" visibility="public" static="false" line="11"/>
+  <member name="clientSecret" visibility="public" static="false" line="12"/>
+  <member name="username" visibility="public" static="false" line="13"/>
+  <member name="password" visibility="public" static="false" line="14"/>
+  <member name="token" visibility="public" static="false" line="15"/>
+  <constructor name="__construct" start="17" end="25" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="clientId" byreference="false" type="{unknown}"/>
+    <parameter name="clientSecret" byreference="false" type="{unknown}"/>
+    <parameter name="token" byreference="false" type="{unknown}" default="NULL"/>
+    <parameter name="username" byreference="false" type="{unknown}" default="NULL"/>
+    <parameter name="password" byreference="false" type="{unknown}" default="NULL"/>
+    <parameter name="apiUrl" byreference="false" type="string" default="'https://api.goship.io'"/>
+  </constructor>
+  <method name="getToken" start="27" end="40" abstract="false" final="false" static="false" visibility="public"/>
+  <method name="requestAuth" start="42" end="52" abstract="false" final="false" static="false" visibility="public"/>
+</class>

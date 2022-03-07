@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Kingdarkness\Goship\Goship" namespace="Kingdarkness\Goship" name="Goship" abstract="false" final="false" start="10" end="298">
+  <file path="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src" file="Goship.php" realpath="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src/Goship.php" size="9741" time="2022-03-07T06:55:17+00:00" unixtime="1646636117" sha1="d97c11b0829c78772758b93bfb809442850dca41" relative="Goship.php"/>
+  <member name="config" visibility="public" static="false" line="15">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Kingdarkness\Goship\Auth" namespace="Kingdarkness\Goship" name="Auth"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="27" end="30" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Goship class"/>
+      <param description="[client id goship]" type="string" variable="$clientId"/>
+      <param description="[client secret goship]" type="string" variable="$clientSecret"/>
+      <param description="(optional) [accessToken goship]" type="string" variable="$accessToken"/>
+      <param description="(optional) [username goship]" type="string" variable="$username"/>
+      <param description="(optional) [password goship]" variable="$string" type="object">
+        <type full="Kingdarkness\Goship\$password" namespace="Kingdarkness\Goship" name="$password"/>
+      </param>
+      <param description="(optional) [goship api url]" variable="$string" type="object">
+        <type full="Kingdarkness\Goship\$apiUrl" namespace="Kingdarkness\Goship" name="$apiUrl"/>
+      </param>
+    </docblock>
+    <parameter name="clientId" byreference="false" type="{unknown}"/>
+    <parameter name="clientSecret" byreference="false" type="{unknown}"/>
+    <parameter name="accessToken" byreference="false" type="{unknown}" default="NULL"/>
+    <parameter name="username" byreference="false" type="{unknown}" default="NULL"/>
+    <parameter name="password" byreference="false" type="{unknown}" default="NULL"/>
+    <parameter name="apiUrl" byreference="false" type="string" default="'https://api.goship.io'"/>
+  </constructor>
+  <method name="getCities" start="40" end="45" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lấy danh sách tỉnh thành"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getDistricts" start="56" end="61" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lấy danh sách quận huyện thuộc tỉnh thành"/>
+      <param description="[mã tỉnh thành]" type="mixed" variable="$cityCode"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="cityCode" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getWards" start="72" end="77" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lấy danh sách phường xã thuộc quận huyện"/>
+      <param description="[mã quận huyện]" type="mixed" variable="$districtCode"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="districtCode" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getShipments" start="87" end="92" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lấy danh sách vận đơn"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getShipment" start="103" end="112" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lấy chi tiết đơn hàng"/>
+      <param description="[mã vận đơn]" type="mixed" variable="$code"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getPrintUrl" start="123" end="127" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lấy link in vận đơn"/>
+      <param description="[mã vận đơn]" type="mixed" variable="$code"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="cancelShipment" start="138" end="143" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Hủy đơn hàng"/>
+      <param description="[mã vận đơn]" type="mixed" variable="$code"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="createShipment" start="154" end="194" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="tạo đơn hàng"/>
+      <param description="[thông tin đơn hàng]" type="array" variable="$data"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getRates" start="205" end="231" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="lấy danh sách bảng giá"/>
+      <param description="[thông tin đơn hàng]" type="array" variable="$data"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getTransactions" start="241" end="246" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lấy danh sách lịch sử giao dịch"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getInvoices" start="256" end="261" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lấy danh sách đối soát"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getShipmentInInvoice" start="272" end="277" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Lấy danh sách đơn hàng thuộc đối soát"/>
+      <param description="[mã đối soát]" type="mixed" variable="$invoiceCode"/>
+      <param description="(optional) [query string]" type="array" variable="$query"/>
+      <param description="(optional) [custom headers]" type="array" variable="$headers"/>
+      <return type="array"/>
+    </docblock>
+    <parameter name="invoiceCode" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="verifyWebhook" start="286" end="297" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="verify Webhook"/>
+      <throws type="object">
+        <type full="Kingdarkness\Goship\KingDarkness\Goship\Exceptions\UnverifiException" namespace="Kingdarkness\Goship\KingDarkness\Goship\Exceptions" name="UnverifiException"/>
+      </throws>
+      <return description="[data Webhook]" type="array"/>
+    </docblock>
+  </method>
+</class>

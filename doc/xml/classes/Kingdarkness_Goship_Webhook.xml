@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Kingdarkness\Goship\Webhook" namespace="Kingdarkness\Goship" name="Webhook" abstract="false" final="false" start="4" end="12">
+  <file path="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src" file="Webhook.php" realpath="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src/Webhook.php" size="312" time="2022-03-03T04:27:11+00:00" unixtime="1646281631" sha1="58225ba15a18812eefa00506b3f1e292c88f842b" relative="Webhook.php"/>
+  <method name="verify" start="6" end="11" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="data" byreference="false" type="{unknown}"/>
+    <parameter name="webhookHmac" byreference="false" type="{unknown}"/>
+    <parameter name="clientSecret" byreference="false" type="{unknown}"/>
+  </method>
+</class>

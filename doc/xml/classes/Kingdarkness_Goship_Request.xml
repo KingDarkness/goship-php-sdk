@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Kingdarkness\Goship\Request" namespace="Kingdarkness\Goship" name="Request" abstract="true" final="false" start="8" end="68">
+  <file path="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src" file="Request.php" realpath="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src/Request.php" size="1865" time="2022-03-07T02:59:56+00:00" unixtime="1646621996" sha1="44067a364254cd9faf6655fde89a4b2c2e2f744f" relative="Request.php"/>
+  <member name="httpClient" visibility="protected" static="false" line="13">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="GuzzleHttp\Client" namespace="GuzzleHttp" name="Client"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="config" visibility="protected" static="false" line="18">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="Kingdarkness\Goship\Auth" namespace="Kingdarkness\Goship" name="Auth"/>
+      </var>
+    </docblock>
+  </member>
+  <constructor name="__construct" start="20" end="24" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="httpClient" byreference="false" type="object">
+      <type full="GuzzleHttp\Client" namespace="GuzzleHttp" name="Client"/>
+    </parameter>
+    <parameter name="config" byreference="false" type="object">
+      <type full="Kingdarkness\Goship\Auth" namespace="Kingdarkness\Goship" name="Auth"/>
+    </parameter>
+  </constructor>
+  <method name="request" start="26" end="50" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="url" byreference="false" type="string"/>
+    <parameter name="method" byreference="false" type="string" default="'GET'"/>
+    <parameter name="request" byreference="false" type="array" default=""/>
+    <parameter name="withAuth" byreference="false" type="boolean" default="true"/>
+  </method>
+  <method name="defaultHeaders" start="52" end="67" abstract="false" final="false" static="false" visibility="private">
+    <parameter name="withAuth" byreference="false" type="boolean" default="true"/>
+  </method>
+  <extenders>
+    <extender full="Kingdarkness\Goship\V2\Shipment" namespace="Kingdarkness\Goship\V2" name="Shipment"/>
+    <extender full="Kingdarkness\Goship\V2\Transaction" namespace="Kingdarkness\Goship\V2" name="Transaction"/>
+    <extender full="Kingdarkness\Goship\V2\Auth" namespace="Kingdarkness\Goship\V2" name="Auth"/>
+    <extender full="Kingdarkness\Goship\V2\Invoice" namespace="Kingdarkness\Goship\V2" name="Invoice"/>
+    <extender full="Kingdarkness\Goship\V2\Location" namespace="Kingdarkness\Goship\V2" name="Location"/>
+  </extenders>
+</class>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://xml.phpdox.net/src" basedir="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src">
+  <namespace name="Kingdarkness\Goship">
+    <class name="Auth" src="Auth.php" xml="classes/Kingdarkness_Goship_Auth.xml"/>
+    <class name="Request" src="Request.php" xml="classes/Kingdarkness_Goship_Request.xml"/>
+    <class name="Webhook" src="Webhook.php" xml="classes/Kingdarkness_Goship_Webhook.xml"/>
+    <class name="Goship" src="Goship.php" xml="classes/Kingdarkness_Goship_Goship.xml"/>
+    <class name="Arr" src="Arr.php" xml="classes/Kingdarkness_Goship_Arr.xml"/>
+  </namespace>
+  <namespace name="Kingdarkness\Goship\Exceptions">
+    <class name="UnverifiException" src="Exceptions/UnverifiException.php" xml="classes/Kingdarkness_Goship_Exceptions_UnverifiException.xml"/>
+    <class name="ValidateException" src="Exceptions/ValidateException.php" xml="classes/Kingdarkness_Goship_Exceptions_ValidateException.xml"/>
+  </namespace>
+  <namespace name="Kingdarkness\Goship\V2">
+    <class name="Shipment" src="V2/Shipment.php" xml="classes/Kingdarkness_Goship_V2_Shipment.xml"/>
+    <class name="Transaction" src="V2/Transaction.php" xml="classes/Kingdarkness_Goship_V2_Transaction.xml"/>
+    <class name="Auth" src="V2/Auth.php" xml="classes/Kingdarkness_Goship_V2_Auth.xml"/>
+    <class name="Invoice" src="V2/Invoice.php" xml="classes/Kingdarkness_Goship_V2_Invoice.xml"/>
+    <class name="Location" src="V2/Location.php" xml="classes/Kingdarkness_Goship_V2_Location.xml"/>
+  </namespace>
+  <namespace name="">
+    <class name="Exception" xml="classes/Exception.xml"/>
+  </namespace>
+</index>

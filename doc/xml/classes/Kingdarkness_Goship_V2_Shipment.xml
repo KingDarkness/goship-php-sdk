@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Kingdarkness\Goship\V2\Shipment" namespace="Kingdarkness\Goship\V2" name="Shipment" abstract="false" final="false" start="6" end="161">
+  <file path="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src/V2" file="Shipment.php" realpath="/Users/kingdarkness/Developments/goship/goship-composer-plugin/goship/src/V2/Shipment.php" size="5270" time="2022-03-03T04:08:32+00:00" unixtime="1646280512" sha1="f290a9c4925a17a1976a06267c555b2030076f2e" relative="V2/Shipment.php"/>
+  <extends full="Kingdarkness\Goship\Request" namespace="Kingdarkness\Goship" name="Request"/>
+  <constant type="integer" name="STATUS_NEW" value="900"/>
+  <constant type="integer" name="STATUS_PICKUP" value="901"/>
+  <constant type="integer" name="STATUS_PICKINGUP" value="902"/>
+  <constant type="integer" name="STATUS_PICKEDUP" value="903"/>
+  <constant type="integer" name="STATUS_DELIVERING" value="904"/>
+  <constant type="integer" name="STATUS_DELIVERED" value="905"/>
+  <constant type="integer" name="STATUS_FAILED" value="906"/>
+  <constant type="integer" name="STATUS_RETURNING" value="907"/>
+  <constant type="integer" name="STATUS_RETURNED" value="908"/>
+  <constant type="integer" name="STATUS_CROSSCHECKED_CARRIER" value="909"/>
+  <constant type="integer" name="STATUS_CROSSCHECKED_SHOP" value="910"/>
+  <constant type="integer" name="STATUS_COD_SHOP" value="911"/>
+  <constant type="integer" name="STATUS_COD_CARRIER" value="912"/>
+  <constant type="integer" name="STATUS_DONE" value="913"/>
+  <constant type="integer" name="STATUS_CANCEL" value="914"/>
+  <constant type="integer" name="STATUS_DELAY" value="915"/>
+  <constant type="integer" name="STATUS_DELIVERED_PART" value="916"/>
+  <constant type="integer" name="STATUS_LOST" value="917"/>
+  <constant type="integer" name="STATUS_UNKNOW" value="1000"/>
+  <constant type="integer" name="CUSTOMER_PAY" value="0"/>
+  <constant type="integer" name="SHOP_PAY" value="1"/>
+  <method name="getStatusText" start="33" end="64" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="statusCode" byreference="false" type="{unknown}" default="NULL"/>
+  </method>
+  <method name="getRates" start="75" end="83" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="lấy thông tin bảng giá"/>
+      <param type="array" variable="$data"/>
+      <param description="(optional)" type="array" variable="$query"/>
+      <param description="(optional)" type="array" variable="$headers"/>
+      <return description="goship response" type="array"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="create" start="94" end="102" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="tạo mới vận đơn"/>
+      <param type="array" variable="$data"/>
+      <param description="(optional)" type="array" variable="$query"/>
+      <param description="(optional)" type="array" variable="$headers"/>
+      <return description="goship response" type="array"/>
+    </docblock>
+    <parameter name="data" byreference="false" type="array"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getByQuery" start="112" end="119" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="lấy thông tin list vận đơn"/>
+      <param description="(optional)" type="array" variable="$query"/>
+      <param description="(optional)" type="array" variable="$headers"/>
+      <return description="goship response" type="array"/>
+    </docblock>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="getDetail" start="130" end="137" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="lấy thông tin chi tiết vận đơn"/>
+      <param type="mixed" variable="$code"/>
+      <param description="(optional)" type="array" variable="$query"/>
+      <param description="(optional)" type="array" variable="$headers"/>
+      <return description="goship response" type="array"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="delete" start="148" end="155" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="xoá/huỷ vận đơn"/>
+      <param type="mixed" variable="$code"/>
+      <param description="(optional)" type="array" variable="$query"/>
+      <param description="(optional)" type="array" variable="$headers"/>
+      <return description="goship response" type="array"/>
+    </docblock>
+    <parameter name="code" byreference="false" type="{unknown}"/>
+    <parameter name="query" byreference="false" type="array" default=""/>
+    <parameter name="headers" byreference="false" type="array" default=""/>
+  </method>
+  <method name="printUrl" start="157" end="160" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="code" byreference="false" type="{unknown}"/>
+  </method>
+  <parent full="Kingdarkness\Goship\Request" namespace="Kingdarkness\Goship" name="Request">
+    <member name="httpClient" visibility="protected" static="false" line="13">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="GuzzleHttp\Client" namespace="GuzzleHttp" name="Client"/>
+        </var>
+      </docblock>
+    </member>
+    <member name="config" visibility="protected" static="false" line="18">
+      <docblock>
+        <description/>
+        <var type="object">
+          <type full="Kingdarkness\Goship\Auth" namespace="Kingdarkness\Goship" name="Auth"/>
+        </var>
+      </docblock>
+    </member>
+    <constructor name="__construct" start="20" end="24" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="httpClient" byreference="false" type="object">
+        <type full="GuzzleHttp\Client" namespace="GuzzleHttp" name="Client"/>
+      </parameter>
+      <parameter name="config" byreference="false" type="object">
+        <type full="Kingdarkness\Goship\Auth" namespace="Kingdarkness\Goship" name="Auth"/>
+      </parameter>
+    </constructor>
+    <method name="request" start="26" end="50" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="url" byreference="false" type="string"/>
+      <parameter name="method" byreference="false" type="string" default="'GET'"/>
+      <parameter name="request" byreference="false" type="array" default=""/>
+      <parameter name="withAuth" byreference="false" type="boolean" default="true"/>
+    </method>
+  </parent>
+</class>

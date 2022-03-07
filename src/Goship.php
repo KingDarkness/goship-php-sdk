@@ -238,7 +238,7 @@ class Goship
      *
      * @return array
      */
-    public function getTransaction($query = [], $headers = [])
+    public function getTransactions($query = [], $headers = [])
     {
         $requester = new Transaction(new HttpClient(), $this->config);
         $response = $requester->getByQuery($query, $headers);
