@@ -14,11 +14,29 @@ class Goship
     */
     public $config;
 
+    /**
+     * Goship class
+     *
+     * @param string $clientId [client id goship]
+     * @param string $clientSecret [client secret goship]
+     * @param string $accessToken (optional) [accessToken goship]
+     * @param string $username (optional) [username goship]
+     * @param $string $password (optional) [password goship]
+     * @param $string $apiUrl (optional) [goship api url]
+     */
     public function __construct($clientId, $clientSecret, $accessToken = null, $username = null, $password = null, $apiUrl = 'https://api.goship.io')
     {
         $this->config = new Auth($clientId, $clientSecret, $accessToken, $username, $password, $apiUrl);
     }
 
+    /**
+     * Lấy danh sách tỉnh thành
+     *
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function getCities($query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
@@ -26,6 +44,15 @@ class Goship
         return Arr::get($response, 'data', []);
     }
 
+    /**
+     * Lấy danh sách quận huyện thuộc tỉnh thành
+     *
+     * @param mixed $cityCode [mã tỉnh thành]
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function getDistricts($cityCode, $query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
@@ -33,6 +60,15 @@ class Goship
         return Arr::get($response, 'data', []);
     }
 
+    /**
+     * Lấy danh sách phường xã thuộc quận huyện
+     *
+     * @param mixed $districtCode [mã quận huyện]
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function getWards($districtCode, $query = [], $headers = [])
     {
         $requester = new Location(new HttpClient(), $this->config);
@@ -40,6 +76,14 @@ class Goship
         return Arr::get($response, 'data', []);
     }
 
+    /**
+     * Lấy danh sách vận đơn
+     *
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function getShipments($query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
@@ -47,6 +91,15 @@ class Goship
         return Arr::get($response, 'data', []);
     }
 
+    /**
+     * Lấy chi tiết đơn hàng
+     *
+     * @param mixed $code [mã vận đơn]
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function getShipment($code, $query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
@@ -58,12 +111,30 @@ class Goship
         return null;
     }
 
+    /**
+     * Lấy link in vận đơn
+     *
+     * @param mixed $code [mã vận đơn]
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return string
+     */
     public function getPrintUrl($code, $query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
         return $requester->printUrl($code, $query, $headers);
     }
 
+    /**
+     * Hủy đơn hàng
+     *
+     * @param mixed $code [mã vận đơn]
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function cancelShipment($code, $query = [], $headers = [])
     {
         $requester = new Shipment(new HttpClient(), $this->config);
@@ -71,6 +142,15 @@ class Goship
         return Arr::get($response, 'data', []);
     }
 
+    /**
+     * tạo đơn hàng
+     *
+     * @param array $data [thông tin đơn hàng]
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function createShipment($data, $query = [], $headers = [])
     {
         $sendData = [
@@ -113,6 +193,15 @@ class Goship
         return $requester->create($sendData, $query, $headers);
     }
 
+    /**
+     * lấy danh sách bảng giá
+     *
+     * @param array $data [thông tin đơn hàng]
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function getRates($data, $query = [], $headers = [])
     {
         $sendData = [
@@ -141,6 +230,14 @@ class Goship
         return Arr::get($response, 'data', []);
     }
 
+    /**
+     * Lấy danh sách lịch sử giao dịch
+     *
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function getTransaction($query = [], $headers = [])
     {
         $requester = new Transaction(new HttpClient(), $this->config);
@@ -148,6 +245,14 @@ class Goship
         return Arr::get($response, 'data', []);
     }
 
+    /**
+     * Lấy danh sách đối soát
+     *
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function getInvoices($query = [], $headers = [])
     {
         $requester = new Invoice(new HttpClient(), $this->config);
@@ -155,6 +260,15 @@ class Goship
         return Arr::get($response, 'data', []);
     }
 
+    /**
+     * Lấy danh sách đơn hàng thuộc đối soát
+     *
+     * @param mixed $invoiceCode [mã đối soát]
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
     public function getShipmentInInvoice($invoiceCode, $query = [], $headers = [])
     {
         $requester = new Invoice(new HttpClient(), $this->config);
@@ -162,6 +276,13 @@ class Goship
         return Arr::get($response, 'data', []);
     }
 
+    /**
+     * verify Webhook
+     *
+     * @throws KingDarkness\Goship\Exceptions\UnverifiException
+     *
+     * @return array [data Webhook]
+     */
     public function verifyWebhook()
     {
         $webhook_hmac = $_SERVER['X-Goship-Hmac-SHA256'];

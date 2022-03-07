@@ -39,7 +39,7 @@ abstract class Request
             switch ($ex->getResponse()->getStatusCode()) {
                 case 422:
                     $response = json_decode($ex->getResponse()->getBody()->getContents(), true);
-                    throw new ValidateException($response['data']['errors']);
+                    throw new ValidateException($response);
                 default:
                     throw $ex;
             }
@@ -53,10 +53,16 @@ abstract class Request
     {
         if ($withAuth) {
             return [
-                'Authorization' => $this->config->getToken()
+                'Authorization' => $this->config->getToken(),
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json'
+
             ];
         }
 
-        return [];
+        return [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json'
+        ];
     }
 }
