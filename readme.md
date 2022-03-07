@@ -199,3 +199,11 @@ try {
 	echo 'fake data';
     }
 ```
+
+# DEV
+
+generate doc
+
+```bash
+$ php phpdox.phar
+```
