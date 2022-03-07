@@ -14,7 +14,7 @@ $ composer require kingdarkness/goship
 
 # Usage
 
-Create Goship instance
+#### Create Goship instance
 
 ```php
 use Kingdarkness\Goship\Goship as GoshipSdk;
@@ -24,7 +24,7 @@ use Kingdarkness\Goship\Goship as GoshipSdk;
 $goship = new GoshipSdk($yourClientId, $yourClientSecret, $yourAccessToken);
 ```
 
-Lấy danh sách tỉnh thành
+#### Lấy danh sách tỉnh thành
 
 ```php
 # public function getCities([array $query = [], array $headers = [] )
@@ -53,7 +53,7 @@ $cities = $goship->getCities();
 #]
 ```
 
-Lấy danh sách quận huyện
+#### Lấy danh sách quận huyện
 
 ```php
 # public function getDistricts(mixed $cityCode, array $query = [], array $headers = [] )
@@ -61,7 +61,7 @@ $districts = $goship->getDistricts(100000);
 
 ```
 
-Lấy danh sách phường xã
+#### Lấy danh sách phường xã
 
 ```php
 # public function getWards(mixed $districtCode, array $query = [], array $headers = [] )
@@ -69,7 +69,7 @@ $wards $goship->getWards(100300);
 
 ```
 
-Lấy danh sách vận đơn
+#### Lấy danh sách vận đơn
 
 ```php
 # public function getShipments(array $query = [], array $headers = [] )
@@ -77,7 +77,7 @@ $shipments = $goship->getShipments();
 
 ```
 
-Lấy chi tiết vận đơn
+#### Lấy chi tiết vận đơn
 
 ```php
 # public function getShipment(mixed $code, [array $query = [], array $headers = [] )
@@ -85,7 +85,7 @@ $shipment = $goship->getShipment(GS0001);
 
 ```
 
-Lấy link in vận đơn
+#### Lấy link in vận đơn
 
 ```php
 # public function getPrintUrl(mixed $code, [array $query = [], array $headers = [] )
@@ -93,7 +93,7 @@ $shipment = $goship->getPrintUrl(GS0001);
 
 ```
 
-Hủy vận đơn
+#### Hủy vận đơn
 
 ```php
 # public function cancelShipment(mixed $code, [array $query = [], array $headers = [] )
@@ -101,7 +101,7 @@ $gsResponse = $goship->cancelShipment(GS0001);
 
 ```
 
-Tạo vận đơn mới
+#### Tạo vận đơn mới
 
 ```php
 # public function createShipment(array $data, array $query = [], array $headers = [] )
