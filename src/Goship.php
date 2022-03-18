@@ -285,7 +285,7 @@ class Goship
      */
     public function verifyWebhook()
     {
-        $webhook_hmac = $_SERVER['X-Goship-Hmac-SHA256'];
+        $webhook_hmac = $_SERVER['HTTP_X_GOSHIP_HMAC_SHA256'];
         $data = json_decode(file_get_contents('php://input'), true);
         $verified = Webhook::verify($data, $webhook_hmac, $this->config->clientSecret);
 
