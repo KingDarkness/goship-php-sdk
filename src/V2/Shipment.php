@@ -156,6 +156,6 @@ class Shipment extends Request
 
     public function printUrl($code)
     {
-        return $this->goshipConfig['api_url'] . '/api/v2/shipments/print/' . $code;
+        return $this->config->apiUrl . '/api/v2/shipments/print/' . $code;
     }
 }
