@@ -1,7 +1,7 @@
 <?php
 namespace Kingdarkness\Goship;
 
-require_once __DIR__ . 'Lib/Guzzle/autoloader.php';
+require_once __DIR__ . '/Lib/Guzzle/autoloader.php';
 use Kingdarkness\Goship\Lib\Guzzle\Client as HttpClient;
 use Kingdarkness\Goship\V2\Invoice;
 use Kingdarkness\Goship\V2\Location;
