@@ -81,7 +81,7 @@ $shipments = $goship->getShipments();
 
 ```php
 # public function getShipment(mixed $code, [array $query = [], array $headers = [] )
-$shipment = $goship->getShipment(GS0001);
+$shipment = $goship->getShipment('GS0001');
 
 ```
 
@@ -89,7 +89,7 @@ $shipment = $goship->getShipment(GS0001);
 
 ```php
 # public function getPrintUrl(mixed $code, [array $query = [], array $headers = [] )
-$shipment = $goship->getPrintUrl(GS0001);
+$shipment = $goship->getPrintUrl('GS0001');
 
 ```
 
@@ -97,7 +97,7 @@ $shipment = $goship->getPrintUrl(GS0001);
 
 ```php
 # public function cancelShipment(mixed $code, [array $query = [], array $headers = [] )
-$gsResponse = $goship->cancelShipment(GS0001);
+$gsResponse = $goship->cancelShipment('GS0001');
 
 ```
 
@@ -126,7 +126,7 @@ $data = [
 	'package_name'=> 'test package', # tên gói hàng
 	'metadata'=> 'ghi chú', # ghi chú
 	'order_id'=> '8936487235428', # mã đơn hàng của bạn
-    'node_code'=> 'KHONGCHOXEMHANG', # ghi chú bắt buộc nhận 1 trong các giá trị sau ('CHOTHUHANG' : 'Cho thử hàng', 'CHOXEMHANGKHONGTHU' : 'Cho xem hàng, không cho thử', 'KHONGCHOXEMHANG': 'Không cho xem hàng')
+        'note_code'=> 'KHONGCHOXEMHANG', # ghi chú bắt buộc nhận 1 trong các giá trị sau ('CHOTHUHANG' : 'Cho thử hàng', 'CHOXEMHANGKHONGTHU' : 'Cho xem hàng, không cho thử', 'KHONGCHOXEMHANG': 'Không cho xem hàng')
 	'length'=> 10, # chiều dài
 	'width'=> 10, # chiều rộng
 	'height'=> 10 # chiều cao
@@ -152,7 +152,7 @@ $data = [
 	'amount'=> 0, # giá trị khai giá
 	'weight'=> 500, # (bắt buộc) cân nặng (g)
 	'payer'=> \Kingdarkness\Goship\V2\Shipment::CUSTOMER_PAY, # người trả phí CUSTOMER_PAY => 0 (người nhận trả), SHOP_PAY => 1 (người gửi trả)
-    'length'=> 10, # chiều dài
+        'length'=> 10, # chiều dài
 	'width'=> 10, # chiều rộng
 	'height'=> 10 # chiều cao
 

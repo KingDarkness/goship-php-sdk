@@ -1,7 +1,7 @@
 <?php
 namespace Kingdarkness\Goship;
 
-use GuzzleHttp\Client as HttpClient;
+use Kingdarkness\Goship\Lib\Guzzle\Client as HttpClient;
 use Kingdarkness\Goship\V2\Invoice;
 use Kingdarkness\Goship\V2\Location;
 use Kingdarkness\Goship\V2\Shipment;

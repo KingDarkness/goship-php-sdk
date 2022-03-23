@@ -1,8 +1,8 @@
 <?php
 namespace Kingdarkness\Goship;
 
-use GuzzleHttp\Client as HttpClient;
 use Kingdarkness\Goship\Exceptions\ValidateException;
+use Kingdarkness\Goship\Lib\Guzzle\Client as HttpClient;
 use Kingdarkness\Goship\V2\Auth as AuthRequester;
 
 class Auth

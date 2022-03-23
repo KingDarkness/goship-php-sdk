@@ -2,8 +2,8 @@
 
 namespace Kingdarkness\Goship;
 
-use GuzzleHttp\Client as HttpClient;
 use Kingdarkness\Goship\Exceptions\ValidateException;
+use Kingdarkness\Goship\Lib\Guzzle\Client as HttpClient;
 
 abstract class Request
 {
@@ -35,7 +35,7 @@ abstract class Request
 
         try {
             $response =  json_decode($this->httpClient->request($method, $this->config->apiUrl . $url, $request)->getBody()->getContents(), true);
-        } catch (\GuzzleHttp\Exception\ClientException $ex) {
+        } catch (\Kingdarkness\Goship\Lib\Guzzle\Exception\ClientException $ex) {
             switch ($ex->getResponse()->getStatusCode()) {
                 case 422:
                     $response = json_decode($ex->getResponse()->getBody()->getContents(), true);
