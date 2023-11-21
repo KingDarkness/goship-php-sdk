@@ -1,8 +1,8 @@
 <?php
 namespace Kingdarkness\Goship\Lib\Guzzle\Handler;
 
-use Kingdarkness\Goship\Lib\Guzzle\Exception\RequestException;
 use Kingdarkness\Goship\Lib\Guzzle\Exception\ConnectException;
+use Kingdarkness\Goship\Lib\Guzzle\Exception\RequestException;
 use Kingdarkness\Goship\Lib\Guzzle\Promise\FulfilledPromise;
 use Kingdarkness\Goship\Lib\Guzzle\Promise\RejectedPromise;
 use Kingdarkness\Goship\Lib\Guzzle\Psr7;
@@ -36,7 +36,7 @@ class CurlFactory implements CurlFactoryInterface
             unset($options['curl']['body_as_string']);
         }
 
-        $easy = new EasyHandle;
+        $easy = new EasyHandle();
         $easy->request = $request;
         $easy->options = $options;
         $conf = $this->getDefaultConf($easy);
@@ -64,7 +64,7 @@ class CurlFactory implements CurlFactoryInterface
         $resource = $easy->handle;
         unset($easy->handle);
 
-        if (count($this->handles) >= $this->maxHandles) {
+        if ($this->handles && count($this->handles) >= $this->maxHandles) {
             curl_close($resource);
         } else {
             // Remove all callback functions as they can hold onto references
