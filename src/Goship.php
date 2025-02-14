@@ -1,8 +1,10 @@
 <?php
+
 namespace Kingdarkness\Goship;
 
-require_once __DIR__ . '/Lib/Guzzle/autoloader.php';
-use Kingdarkness\Goship\Lib\Guzzle\Client as HttpClient;
+use GuzzleHttp\Client as HttpClient;
+
+use Kingdarkness\Goship\Exceptions\UnverifiException;
 use Kingdarkness\Goship\V2\Invoice;
 use Kingdarkness\Goship\V2\Location;
 use Kingdarkness\Goship\V2\Shipment;
@@ -11,8 +13,8 @@ use Kingdarkness\Goship\V2\Transaction;
 class Goship
 {
     /**
-    * @var Auth
-    */
+     * @var Auth
+     */
     public $config;
 
     /**
@@ -85,10 +87,15 @@ class Goship
      *
      * @return array
      */
-    public function getShipments($query = [], $headers = [])
+    public function getShipments($query = [], $headers = [], $isHasCheckConnect = false)
     {
         $requester = new Shipment(new HttpClient(), $this->config);
         $response = $requester->getByQuery($query, $headers);
+
+        if ($isHasCheckConnect) {
+            return $response;
+        }
+
         return Arr::get($response, 'data', []);
     }
 
@@ -155,40 +162,47 @@ class Goship
     public function createShipment($data, $query = [], $headers = [])
     {
         $sendData = [
-          'shipment' => [
-            'rate' => $data['rate'],
-            'payer' => Arr::get($data, 'payer', Shipment::CUSTOMER_PAY),
-            'order_id' => Arr::get($data, 'order_id'),
-            'metadata' => Arr::get($data, 'metadata'),
-            'node_code' => Arr::get($data, 'node_code', 'KHONGCHOXEMHANG'),
-            'address_from' => [
-              'name' => $data['sender_name'],
-              'phone' => $data['sender_phone'],
-              'street' => $data['from_street'],
-              'city' => $data['from_city'],
-              'district' => $data['from_district'],
-              'ward' => $data['from_ward'],
+            'shipment' => [
+                'rate' => $data['rate'],
+                'payer' => Arr::get($data, 'payer', Shipment::CUSTOMER_PAY),
+                'order_id' => Arr::get($data, 'order_id'),
+                'metadata' => Arr::get($data, 'metadata'),
+                'node_code' => Arr::get($data, 'node_code', 'KHONGCHOXEMHANG'),
+                'part_delivery' => Arr::get($data, 'part_delivery', 0),
+                'address_from' => [
+                    'name' => $data['sender_name'],
+                    'phone' => $data['sender_phone'],
+                    'street' => $data['from_street'],
+                    'city' => $data['from_city'],
+                    'district' => $data['from_district'],
+                    'ward' => $data['from_ward'],
+                ],
+                'address_to' => [
+                    'name' => $data['receiver_name'],
+                    'phone' => $data['receiver_phone'],
+                    'street' => $data['to_street'],
+                    'city' => $data['to_city'],
+                    'district' => $data['to_district'],
+                    'ward' => $data['to_ward'],
+                ],
+                'parcel' => [
+                    'name' => Arr::get($data, 'package_name', 'kiện hàng'),
+                    'cod' => Arr::get($data, 'cod', 0),
+                    'amount' => Arr::get($data, 'amount', 0),
+                    'weight' => Arr::get($data, 'weight', 500),
+                    'metadata' => Arr::get($data, 'metadata'),
+                    'length' => Arr::get($data, 'length', 0),
+                    'width' => Arr::get($data, 'width', 0),
+                    'height' => Arr::get($data, 'height', 0),
+                ],
             ],
-            'address_to' => [
-              'name' => $data['receiver_name'],
-              'phone' => $data['receiver_phone'],
-              'street' => $data['to_street'],
-              'city' => $data['to_city'],
-              'district' => $data['to_district'],
-              'ward' => $data['to_ward'],
-            ],
-            'parcel' => [
-              'name' => Arr::get($data, 'package_name', 'kiện hàng'),
-              'cod' => Arr::get($data, 'cod', 0),
-              'amount' => Arr::get($data, 'amount', 0),
-              'weight' => Arr::get($data, 'weight', 500),
-              'metadata' => Arr::get($data, 'metadata'),
-              'length' => Arr::get($data, 'length', 0),
-              'width' => Arr::get($data, 'width', 0),
-              'height' => Arr::get($data, 'height', 0),
-            ],
-          ],
         ];
+
+        if (in_array(app('config')->get('app.env'), ['local', 'dev'])) {
+            \Log::info([
+                'log-rates' => $sendData
+            ]);
+        }
 
         $requester = new Shipment(new HttpClient(), $this->config);
         return $requester->create($sendData, $query, $headers);
@@ -206,24 +220,24 @@ class Goship
     public function getRates($data, $query = [], $headers = [])
     {
         $sendData = [
-          'shipment' => [
-            'address_from' => [
-              'city' => $data['from_city'],
-              'district' => $data['from_district'],
+            'shipment' => [
+                'address_from' => [
+                    'city' => $data['from_city'],
+                    'district' => $data['from_district'],
+                ],
+                'address_to' => [
+                    'city' => $data['to_city'],
+                    'district' => $data['to_district'],
+                ],
+                'parcel' => [
+                    'cod' => Arr::get($data, 'cod', 0),
+                    'amount' => Arr::get($data, 'amount', 0),
+                    'weight' => Arr::get($data, 'weight', 500),
+                    'length' => Arr::get($data, 'length', 0),
+                    'width' => Arr::get($data, 'width', 0),
+                    'height' => Arr::get($data, 'height', 0),
+                ],
             ],
-            'address_to' => [
-              'city' => $data['to_city'],
-              'district' => $data['to_district'],
-            ],
-            'parcel' => [
-              'cod' => Arr::get($data, 'cod', 0),
-              'amount' => Arr::get($data, 'amount', 0),
-              'weight' => Arr::get($data, 'weight', 500),
-              'length' => Arr::get($data, 'length', 0),
-              'width' => Arr::get($data, 'width', 0),
-              'height' => Arr::get($data, 'height', 0),
-            ],
-          ],
         ];
 
         $requester = new Shipment(new HttpClient(), $this->config);
@@ -258,7 +272,8 @@ class Goship
     {
         $requester = new Invoice(new HttpClient(), $this->config);
         $response = $requester->getByQuery($query, $headers);
-        return Arr::get($response, 'data', []);
+        // return Arr::get($response, 'data', []);
+        return $response;
     }
 
     /**
@@ -278,22 +293,36 @@ class Goship
     }
 
     /**
+     * Lấy danh sách đối soát
+     *
+     * @param array $query (optional) [query string]
+     * @param array $headers (optional) [custom headers]
+     *
+     * @return array
+     */
+    public function getInvoiceSearch($query = [], $headers = [])
+    {
+        $requester = new Invoice(new HttpClient(), $this->config);
+        $response = $requester->getByQuerySearch($query, $headers);
+        // return Arr::get($response, 'data', []);
+        return $response;
+    }
+
+    /**
      * verify Webhook
      *
-     * @throws KingDarkness\Goship\Exceptions\UnverifiException
+     * @throws UnverifiException
      *
      * @return array [data Webhook]
      */
-    public function verifyWebhook()
+    public function verifyWebhook(array $data, string $webhook_hmac)
     {
-        $webhook_hmac = $_SERVER['HTTP_X_GOSHIP_HMAC_SHA256'];
-        $data = json_decode(file_get_contents('php://input'), true);
         $verified = Webhook::verify($data, $webhook_hmac, $this->config->clientSecret);
 
         if ($verified) {
             return $data;
         }
 
-        throw new \KingDarkness\Goship\Exceptions\UnverifiException();
+        throw new UnverifiException();
     }
 }

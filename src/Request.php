@@ -2,8 +2,10 @@
 
 namespace Kingdarkness\Goship;
 
+use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
 use Kingdarkness\Goship\Exceptions\ValidateException;
-use Kingdarkness\Goship\Lib\Guzzle\Client as HttpClient;
 
 abstract class Request
 {
@@ -27,15 +29,19 @@ abstract class Request
     {
         $request['headers'] = array_merge(Arr::get($request, 'headers', []), $this->defaultHeaders($withAuth));
         $request['verify'] = false;
+        $request['verify'] = false;
         $request['curl'] = [
             CURLOPT_SSLVERSION => CURL_SSLVERSION_MAX_TLSv1_2,
             CURLOPT_SSL_CIPHER_LIST => 'DEFAULT@SECLEVEL=1'
         ];
-
+        $request['timeout'] = 30;
 
         try {
             $response =  json_decode($this->httpClient->request($method, $this->config->apiUrl . $url, $request)->getBody()->getContents(), true);
-        } catch (\Kingdarkness\Goship\Lib\Guzzle\Exception\ClientException $ex) {
+        } catch(ConnectException $e) {
+            // throw new \Exception("Request timeout after 30 seconds", 0, $e);
+            throw $e;
+        } catch (ClientException $ex) {
             switch ($ex->getResponse()->getStatusCode()) {
                 case 422:
                     $response = json_decode($ex->getResponse()->getBody()->getContents(), true);

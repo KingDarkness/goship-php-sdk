@@ -39,4 +39,21 @@ class Invoice extends Request
         ]);
         return $response;
     }
+
+    /**
+     * lấy thông tin list đối soát
+     *
+     * @param array $query (optional)
+     * @param array $headers (optional)
+     *
+     * @return array goship response
+     */
+    public function getByQuerySearch(array $query = [], array $headers = [])
+    {
+        $response = $this->request('/api/v2/invoices/search', 'GET', [
+            'query' => $query,
+            'headers' => $headers,
+        ]);
+        return $response;
+    }
 }

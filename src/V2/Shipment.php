@@ -63,6 +63,35 @@ class Shipment extends Request
             : 'Không xác định';
     }
 
+    public static function getHasStatusTextGobox($statusCode = null)
+    {
+        $listStatusText = [
+            self::STATUS_NEW                  => 'Đơn mới',
+            self::STATUS_PICKUP               => 'Chờ lấy hàng',
+            self::STATUS_PICKINGUP            => 'Lấy hàng',
+            self::STATUS_PICKEDUP             => 'Đã lấy hàng',
+            self::STATUS_DELIVERING           => 'Giao hàng',
+            self::STATUS_DELIVERED            => 'Giao thành công',
+            self::STATUS_FAILED               => 'Giao thất bại',
+            self::STATUS_RETURNING            => 'Đang chuyển hoàn',
+            self::STATUS_RETURNED             => 'Chuyển hoàn',
+            self::STATUS_DONE                 => 'Hoàn thành', //da tra
+            self::STATUS_CANCEL               => 'Đơn hủy',
+            self::STATUS_DELAY                => 'Chậm lấy/giao',
+            self::STATUS_DELIVERED_PART       => 'Giao hàng một phần',
+            self::STATUS_LOST                 => 'Thất lạc hàng',
+            self::STATUS_UNKNOW               => 'Đơn lỗi',
+        ];
+
+        if (is_null($statusCode)) {
+            return $listStatusText;
+        }
+
+        return isset($listStatusText[$statusCode])
+            ? $listStatusText[$statusCode]
+            : 'Không xác định';
+    }
+
     /**
      * lấy thông tin bảng giá
      *
@@ -111,11 +140,15 @@ class Shipment extends Request
      */
     public function getByQuery(array $query = [], array $headers = [])
     {
-        $response = $this->request('/api/v2/shipments', 'GET', [
-            'query' => $query,
-            'headers' => $headers,
-        ]);
-        return $response;
+        try {
+            $response = $this->request('/api/v2/shipments', 'GET', [
+                'query' => $query,
+                'headers' => $headers,
+            ]);
+            return $response;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
