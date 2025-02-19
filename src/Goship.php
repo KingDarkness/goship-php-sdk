@@ -198,12 +198,6 @@ class Goship
             ],
         ];
 
-        if (in_array(app('config')->get('app.env'), ['local', 'dev'])) {
-            \Log::info([
-                'log-rates' => $sendData
-            ]);
-        }
-
         $requester = new Shipment(new HttpClient(), $this->config);
         return $requester->create($sendData, $query, $headers);
     }
